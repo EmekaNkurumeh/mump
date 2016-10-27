@@ -1,7 +1,7 @@
+
 juno.onLoad = ->
 
 juno.onUpdate = (dt) ->
-
 
 juno.onDraw = () ->
 

@@ -11,6 +11,7 @@ export G = {
   flux: require "flux"
   tick: require "tick"
   bump: require "bump"
+  util: require "util"
 }
 {
   title: G.title
