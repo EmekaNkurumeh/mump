@@ -20,14 +20,8 @@ class entity
       @y += @yvel + G.gravity
       @xvel = @xvel*(1 - math.min dt*G.friction,1)
       @yvel = @yvel*(1 - math.min dt*G.friction,1)
-      if @x > G.width-@w then @x = G.width-@w elseif @x <= 0 then @x = 0
-      if @y > G.height-@h then
-        @y = G.height-@h
-      elseif @y <= 0 then
-        @y = 0
-        @yvel = 0
     if @xvel != 0 or @yvel != 0
-      G.world\move(@,@x,@y)
+      @x,@y = G.world\move(@,@x,@y)
     return
   draw: () =>
     @canvas\drawRect 0,0,@w,@h
