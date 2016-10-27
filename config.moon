@@ -12,6 +12,7 @@ export G = {
   tick: require "tick"
   bump: require "bump"
   util: require "util"
+  world: require "bump".newWorld(8)
 }
 {
   title: G.title
