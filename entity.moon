@@ -26,7 +26,8 @@ class entity
       elseif @y <= 0 then
         @y = 0
         @yvel = 0
-      if @xvel != 0 or @yvel != 0
+    if @xvel != 0 or @yvel != 0
+      G.world\move(@,@x,@y)
     return
   draw: () =>
     @canvas\drawRect 0,0,@w,@h
