@@ -15,7 +15,7 @@ util.setfenv = setfenv or (fn, env) ->
   while true do
     name = debug.getupvalue fn, i
     if name == "_ENV" 
-      debug.upvaluejoin fn, i, (->env), 1
+      debug.upvaluejoin fn, i, (-> env), 1
       break
     elseif not name 
       break
@@ -32,25 +32,25 @@ util.getfenv = getfenv or (fn) ->
       break
     i = i + 1
     
-util.run_env = (env,fn,...) ->
-  setfenv fn,env
+util.run_env = (env, fn, ...) ->
+  setfenv fn, env
   fn ... 
 util.map = (f, a, ...) ->
    t = {}
    for _ in *a
      _i = _index_0
-     t[_i] = f(_,...)
+     t[_i] = f(_, ...)
    return t
 util.foldr = (f, a, ...) ->
   t = 0
   for _ in *a
-    t += f(_,...)
+    t += f(_, ...)
   t
 util.foldl = (f, a, ...) ->
   t = 0
   for i = #a, 1, -1
     _ = a[i]
-    t += f(_,...)
+    t += f(_, ...)
   t
 
 {:util}
