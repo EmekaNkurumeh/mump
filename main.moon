@@ -1,3 +1,4 @@
+import entity from require "entity"
 
 juno.onLoad = ->
 

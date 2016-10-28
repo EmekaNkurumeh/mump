@@ -1,5 +1,5 @@
 class entity
-  new: (@name,@screen,dm,@static) =>
+  new: (@name,@screen,dm,@world,@static) =>
     @x = dm.x * G.scale
     @y = dm.y * G.scale
     @w = dm.w
@@ -9,7 +9,7 @@ class entity
       @xvel = 0
       @yvel = 0
     @canvas = juno.Buffer.fromBlank @w,@h
-    G.world\add @,@x,@y,@w,@h
+    @world\add @,@x,@y,@w,@h
     return 
   update: (dt) =>
     G.coil.update dt
@@ -21,7 +21,8 @@ class entity
       @xvel = @xvel*(1 - math.min dt*G.friction,1)
       @yvel = @yvel*(1 - math.min dt*G.friction,1)
     if @xvel != 0 or @yvel != 0
-      @x,@y = G.world\move(@,@x,@y)
+      @world\move(@,@x,@y)
+      -- @x,@y = @world\move(@,@x,@y)
     return
   draw: () =>
     @canvas\drawRect 0,0,@w,@h
